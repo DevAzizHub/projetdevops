@@ -37,7 +37,7 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
              sh 'docker version'
              sh 'docker build -t dockerfilehunter/achat .'
              sh 'docker image list'
-             sh 'docker tag aziz-docker dockerfilehunter/achat:latest'
+            // sh 'docker tag aziz-docker dockerfilehunter/achat:latest'
           } 
 
  }          
