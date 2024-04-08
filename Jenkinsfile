@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Étape de checkout : récupération du code depuis Git
-git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git'            
+          git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git'            
     
             }
         }
@@ -143,7 +143,8 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
             }
         }
 	stage('Docker compose'){
-          steps { 
+          steps {
+            sh 'docker-compose up -d' 
               }}}
 
 }
