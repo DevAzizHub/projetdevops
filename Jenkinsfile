@@ -23,7 +23,7 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
             }
         }
 
-
+}
 
         stage('Maven') {
             steps {
@@ -40,7 +40,7 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
              sh 'docker tag aziz-docker dockerfilehunter/achat:latest'
           } 
 
-           
+ }          
                
     stage('Docker login'){
       steps{     
@@ -150,4 +150,4 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
             }
         }
     }
-}
+
