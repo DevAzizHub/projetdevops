@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+
   # Database Service (Mysql)
   database:
     image: mysql:5.7
