@@ -42,14 +42,7 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
 
  }          
                
-    stage('Docker login'){
-      steps{     
- 
-           withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'pwd')]) {
-		sh 'docker login -u DevAzizHub -p $pwd'    
-}   
-}
-}
+
 
  
 
