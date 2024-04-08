@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+# Database Service (Mysql)
+  database:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=achatdb
+      - MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+ # App backend service
+  spring-boot:
+    depends_on:
+      - database
+    container_name: springcontainer
+    image: dockerfilehunter/achat:latest
+    ports:
+      - 8089:8089
+    environment:
+        -SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/achatdb?createDatabaseIfNotExist=true
+        -SPRING_DATASOURCE_USERNAME=root
+        -SPRING_DATASOURCE_PASSWORD=
+        -SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+        -SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    stdin_open: true
+    tty: true
+    networks:
+      - backend
+    restart: unless-stopped
+ 
+networks:
+  backend:
+volumes:
+  db_data:

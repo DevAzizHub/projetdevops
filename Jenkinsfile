@@ -142,6 +142,10 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
                 }
             }
         }
-    }
+	stage('Docker compose'){
+          steps { 
+              script{ 
+                sh 'docker-compose up -d'
+    }}}}
 
 }
