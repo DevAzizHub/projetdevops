@@ -23,7 +23,7 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
             }
         }
 
-}
+
 
         stage('Maven') {
             steps {
@@ -151,3 +151,4 @@ git credentialsId: 'token', url: 'https://github.com/DevAzizHub/projetdevops.git
         }
     }
 
+}
